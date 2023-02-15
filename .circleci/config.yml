@@ -13,3 +13,9 @@ jobs:
           command: |
             terraform init
             terraform apply -auto-approve
+
+workflows:
+  version: 2
+  workflow-apply-terraform:
+    jobs:
+      - terraform-apply
