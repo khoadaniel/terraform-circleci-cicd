@@ -8,15 +8,18 @@ variable "my_project" {
   description = "Name of my GCP project."
 }
 
-variable "my_google_credentials" {
-  default = var.GOOLE_CREDENTIALS
+variable "credentials" {
+  type        = string
+  description = "Name of my GCP project."
 }
+
+
 
 
 provider "google" {
   project     = var.my_project
   region      = var.my_region
-  credentials = var.my_google_credentials
+  credentials = var.credentials
 }
 
 
