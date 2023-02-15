@@ -25,7 +25,7 @@ provider "google" {
 
 
 resource "google_storage_bucket" "my_bucket" {
-  name          = "my-bucket-created-by-tf"
+  name          = "my-first-bucket-created-by-tf"
   location      = "var.my_region"
   force_destroy = true
 
