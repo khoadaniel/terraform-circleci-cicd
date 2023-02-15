@@ -18,6 +18,4 @@ workflows:
   version: 2
   workflow-apply-terraform:
     jobs:
-      - terraform-apply:
-          parameters:
-            GOOGLE_CREDENTIALS: $GOOGLE_CREDENTIALS
+      - terraform-apply
