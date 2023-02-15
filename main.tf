@@ -8,12 +8,14 @@ variable "my_project" {
   description = "Name of my GCP project."
 }
 
-variable "google_credentials" {}
+variable "my_google_credentials" {
+  default = var.google_credentials
+}
 
 provider "google" {
   project     = var.my_project
   region      = var.my_region
-  credentials = var.google_credentials
+  credentials = var.my_google_credentials
 }
 
 
