@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  terraform-create-bucket:
+    docker:
+      - image: hashicorp/terraform:light
+    environment:
+      GOOGLE_CREDENTIALS: $GOOGLE_CREDENTIALS
+    steps:
+      - checkout
+      - run:
+          name: Terraform Apply
+          command: |
+            terraform init
+            terraform plan
+            terraform apply -auto-approve
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - terraform-create-bucket:
+          parameters:
+            GOOGLE_CREDENTIALS: $GOOGLE_CREDENTIALS

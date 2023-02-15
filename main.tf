@@ -8,11 +8,14 @@ variable "my_project" {
   description = "Name of my GCP project."
 }
 
+variable "google_credentials" {}
+
 provider "google" {
   project     = var.my_project
   region      = var.my_region
-  credentials = file("keys/ml-engineer-playground-terraform.json")
+  credentials = var.google_credentials
 }
+
 
 
 resource "google_storage_bucket" "my_bucket" {
