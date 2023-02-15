@@ -17,16 +17,17 @@ variable "credentials" {
 
 
 provider "google" {
-  project     = var.my_project
-  region      = var.my_region
+  project = var.my_project
+  region  = var.my_region
+  #credentials = file("not-pushed/service-account-key.json")
   credentials = var.credentials
 }
 
 
 
 resource "google_storage_bucket" "my_bucket" {
-  name          = "my-first-bucket-created-by-tf"
-  location      = "var.my_region"
+  name          = "my-first-bucket-created-by-tf-and-circleci"
+  location      = var.my_region
   force_destroy = true
 
   versioning {
