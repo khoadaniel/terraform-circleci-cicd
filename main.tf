@@ -9,8 +9,9 @@ variable "my_project" {
 }
 
 variable "my_google_credentials" {
-  default = var.google_credentials
+  default = var.GOOLE_CREDENTIALS
 }
+
 
 provider "google" {
   project     = var.my_project
